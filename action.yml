@@ -1,0 +1,16 @@
+# action.yml
+name: Github action for Rmarkdown
+description: Renders Rmarkdown files
+author: Yannick Lang
+inputs:
+  input_file:
+    description: input file (.Rmd)
+    required: true
+outputs:
+  output_file:
+    description: Output document, defaults to name of input_file with extension of output type
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.input_file }}
